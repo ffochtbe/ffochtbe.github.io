@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Geog 483 Leaflet Tutorial</title>
+	<!-- This tutorial is based on the official Leaflet quickstart: http://leafletjs.com/examples/quick-start/ -->
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+</head>
+<body>
+
+<style>
+    	body { margin:0; padding:0; }
+    	#mapid { position:absolute; top:50px; bottom:50px; left:50px; width:500px; height:500px;}
+</style>
+
+<div id="mapid"</div>
+<script>
+
+	var mymap = L.map('mapid').setView([43.472498, -80.534801], 15);
+
+	L.tileLayer("http://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+	}).addTo(mymap);
+
+	var watpark = {
+	"type": "FeatureCollection",
+	"features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -80.53050398826599,
+              43.4704521334649
+            ],
+            [
+              -80.53089559078217,
+              43.470300301783354
+            ],
+            [
+              -80.53102433681488,
+              43.47019518731884
+            ],
+            [
+              -80.53109943866728,
+              43.47007450011564
+            ],
+            [
+              -80.53108334541321,
+              43.46993824008046
+            ],
+            [
+              -80.53102433681488,
+              43.46982144552009
+            ],
+            [
+              -80.53092777729034,
+              43.469712437060096
+            ],
+            [
+              -80.5307936668396,
+              43.469650146423284
+            ],
+            [
+              -80.5306327342987,
+              43.469619001080794
+            ],
+            [
+              -80.53041815757751,
+              43.46960732157321
+            ],
+            [
+              -80.52926480770111,
+              43.47004724813319
+            ],
+            [
+              -80.52908778190613,
+              43.47021854610453
+            ],
+            [
+              -80.52906095981598,
+              43.470284729281616
+            ],
+            [
+              -80.529066324234,
+              43.47041709541841
+            ],
+            [
+              -80.5291199684143,
+              43.47052610260748
+            ],
+            [
+              -80.52921116352081,
+              43.470639002703194
+            ],
+            [
+              -80.52932381629944,
+              43.47070518541988
+            ],
+            [
+              -80.52951157093048,
+              43.47073633020265
+            ],
+            [
+              -80.5296939611435,
+              43.470744116395814
+            ],
+            [
+              -80.53017139434814,
+              43.47057281991404
+            ],
+            [
+              -80.53050398826599,
+              43.4704521334649
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -80.53944110870361,
+            43.476373271537085
+          ],
+          [
+            -80.53626537322998,
+            43.47201325247794
+          ],
+          [
+            -80.53165197372437,
+            43.473772869456525
+          ],
+          [
+            -80.5284333229065,
+            43.47081419208935
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -80.53925871849059,
+              43.47628763133437
+            ],
+            [
+              -80.53886711597443,
+              43.47628763133437
+            ],
+            [
+              -80.53886711597443,
+              43.476626298699664
+            ],
+            [
+              -80.53925871849059,
+              43.476626298699664
+            ],
+            [
+              -80.53925871849059,
+              43.47628763133437
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.53906559944153,
+          43.47645112616149
+        ]
+      }
+    }
+  ]
+};
+
+ L.geoJson( watpark,{ 
+ 	style: function (feature) {
+        return { opacity: 0.50, fillOpacity: 0.60, fillColor: "##FF0000" };
+    }
+}).addTo(mymap);
+</script>
+
+
+
+</body>
+</html>

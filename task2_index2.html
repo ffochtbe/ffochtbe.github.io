@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Geog 483 Leaflet Tutorial</title>
+	<!-- This tutorial is based on the official Leaflet quickstart: http://leafletjs.com/examples/quick-start/ -->
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+</head>
+<body>
+
+<style>
+		body { margin:0; padding:0; }
+		#mapid { position:absolute; top:50px; bottom:50px; left:50px; width:1000px; height:600px;}
+</style>
+
+<div id="mapid"</div>
+<script>
+
+	var mymap = L.map('mapid').setView([43.186, -79.23], 13);
+
+	L.tileLayer("http://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+	}).addTo(mymap);
+
+	guyroadPark_url = "https://www.stcatharines.ca/en/playin/resources/GlengarryPark.JPG"
+	lesterPark_url = "http://storage.stcatharinesstandard.ca/v1/dynamic_resize/sws_path/suns-prod-images/1297814680595_ORIGINAL.jpg?quality=80&size=650x&stmp=1457990600320"
+	malcomsonPark_url = "http://yourdigitalgarage.ca/_fomep_com/wp-content/uploads/2014/03/Sign-Entrance-400x400-300x300.jpg"
+	lakesidePark_url = "https://threebestrated.ca/images/LakesidePark-StCatharines-ON.jpeg"
+	lakesideImage = "<img src=" +lakesidePark_url+ "alt='Lester' style='width:150px;height:150px;'>"
+	lesterImage = "<img src=" +lesterPark_url+ "alt='Lester' style='width:150px;height:150px;'>"
+	
+
+
+	L.marker([43.203656, -79.265423]).addTo(mymap)
+		.bindPopup("<b>Lakeside Park, St. Catharines</b><br />"+lakesideImage).openPopup();
+	L.marker([43.182999, -79.224043]).addTo(mymap)
+		.bindPopup("<b>Lester Park, St. Catharines</b><br />"+ lesterImage).openPopup();
+	L.marker([43.198998, -79.240272]).addTo(mymap)
+		.bindPopup("<b>Guy Road Park, St. Catharines</b><br /><img src=" +guyroadPark_url+ ">").openPopup();
+	L.marker([43.215672, -79.216933]).addTo(mymap)
+		.bindPopup("<b>Malcomson Park, St. Catharines</b><br /><img src=" +malcomsonPark_url+ ">").openPopup();
+	
+		
+</script>
+
+
+
+</body>
+</html>
